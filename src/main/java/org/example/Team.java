@@ -1,0 +1,43 @@
+package org.example;
+
+import java.util.List;
+import java.util.Objects;
+
+public class Team {
+    private int id;
+    private String name;
+    private Continent continent;
+    public enum Continent {
+        AFRICA,
+        EUROPA,
+        ASIA,
+        AMERICA
+    }
+    private List<Player> players;
+
+    public Team(int id , String name, Continent continent , List<Player> players) {
+        this.id = id;
+        this.name = name;
+        this.continent = continent;
+        this.players = players;
+    }
+
+    public Integer getPlayersCount(){
+        return players.size();
+    }
+    public String getName(){
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return id == team.id && Objects.equals(name, team.name) && continent == team.continent && Objects.equals(players, team.players);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, continent, players);
+    }
+}
