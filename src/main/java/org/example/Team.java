@@ -6,16 +6,10 @@ import java.util.Objects;
 public class Team {
     private int id;
     private String name;
-    private Continent continent;
-    public enum Continent {
-        AFRICA,
-        EUROPA,
-        ASIA,
-        AMERICA
-    }
+    private ContinentEnum continent;
     private List<Player> players;
 
-    public Team(int id , String name, Continent continent , List<Player> players) {
+    public Team(int id , String name, ContinentEnum continent , List<Player> players) {
         this.id = id;
         this.name = name;
         this.continent = continent;
@@ -39,5 +33,17 @@ public class Team {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, continent, players);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public ContinentEnum getContinent() {
+        return continent;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
     }
 }

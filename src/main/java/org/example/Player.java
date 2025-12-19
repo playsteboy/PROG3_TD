@@ -7,16 +7,10 @@ public class Player {
     private int id;
     private String name;
     private int age;
-    private Position position;
-    public enum Position {
-        GK,
-        DEF,
-        MIDF,
-        STR
-    }
+    private PlayerPositionEnum position;
     private Team team;
 
-    public Player(int id, String name, int age, Position position , Team team) {
+    public Player(int id, String name, int age, PlayerPositionEnum position , Team team) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -38,5 +32,25 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, age, position, team);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public PlayerPositionEnum getPosition() {
+        return position;
+    }
+
+    public Team getTeam() {
+        return team;
     }
 }
