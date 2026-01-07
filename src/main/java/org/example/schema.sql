@@ -1,2 +1,6 @@
 create table Team(id int primary key, name varchar(255) not null , continent varchar(9) ,constraint chk_continent check (continent in ('AFRICA','EUROPA','ASIA', 'AMERICA')));
 create table Player(id int primary key, name varchar(255) not null, age int check(age>0),position varchar(5) , id_team int , constraint fk_id_team foreign key(id_team) references Team(id) , constraint chk_position check (position in('GK','DEF','MIDF','STR')));
+alter table Player add column goal_nb int;
+update Player set goal_nb=5 where id=3;
+update Player set goal_nb=0 where id=1;
+update Player set goal_nb=2 where id=2;

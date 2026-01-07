@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.UncheckedIOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,6 +36,16 @@ public class Team {
         return Objects.hash(id, name, continent, players);
     }
 
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", continent=" + continent +
+                ", players=" + players +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
@@ -45,5 +56,18 @@ public class Team {
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public Integer getPlayersGoals(){
+        Integer goals = 0;
+        for(Player p : players){
+            if(p.getGoal_nb()!=null){
+                goals+=p.getGoal_nb();
+            }
+            else{
+                throw new RuntimeException("a player' s goal number is unknown and it's impossible to calculate the team goal number");
+            }
+        }
+        return goals;
     }
 }
