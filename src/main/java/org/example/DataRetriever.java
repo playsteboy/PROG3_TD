@@ -120,7 +120,7 @@ public class DataRetriever {
         Connection connection = dbConnection.getDBConnection();
         String existsSql = "SELECT id, name, continent FROM team WHERE id = ?";
         String insertTeamSql =
-                "INSERT INTO team(id, name, continent) VALUES (?, ?, ?)";
+                "INSERT INTO team(id, name, continent) VALUES (?, ?, ?) on conflict (id) do update ";
         String updateTeamSql =
                 "UPDATE team SET name = ?, continent = ? WHERE id = ?";
         String updatePlayerSql =
@@ -151,6 +151,7 @@ public class DataRetriever {
                 updatePlayerStatement.setInt(2, player.getId());
                 updatePlayerStatement.executeUpdate();
             }
+            connection.commit();
         }
         /*
         for(Player player : teamToSave.getPlayers()){
@@ -158,8 +159,8 @@ public class DataRetriever {
                 updatePlayerStatement.setInt(2, player.getId());
                 updatePlayerStatement.executeUpdate();
         }
-        */
         connection.commit();
+        */
         connection.close();
         return teamToSave;
     }

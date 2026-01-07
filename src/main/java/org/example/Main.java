@@ -13,14 +13,8 @@ public class Main {
             dbConnection.getDBConnection();
             Team t = dataRetriever.findTeamById(1);
             System.out.println(t.getPlayersGoals());
-            System.out.println(dataRetriever.saveTeam(
-                    new Team(
-                            3,
-                            "TestT2",
-                            ContinentEnum.EUROPA,
-                            new ArrayList<>()
-                    )
-            ).toString());
+            System.out.println(t.toString());
+
         }
         catch (SQLException e){
             e.printStackTrace();

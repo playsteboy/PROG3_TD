@@ -43,7 +43,6 @@ public class Player {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", position=" + position +
-                ", team=" + team +
                 ", goal_nb=" + goal_nb +
                 '}';
     }
